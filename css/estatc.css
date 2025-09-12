@@ -1,0 +1,442 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: monospace;
+}
+
+body {
+  position: relative;
+  background: #000;
+  color: #00ff99;
+  overflow-x: hidden;
+}
+
+#falling-code-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  perspective: 1000px;
+  overflow: visible;
+}
+
+.falling-code {
+  position: absolute;
+  top: -50px;
+  color: #00ff99;
+  text-shadow: 0 0 6px #00ff99, 0 0 12px #00ff99;
+  font-family: 'Fira Code', monospace;
+  white-space: nowrap;
+  opacity: 0.9;
+  transform: rotate3d(1, 1, 0, 30deg);
+  animation: fallCode linear forwards;
+  will-change: transform;
+}
+
+@keyframes fallCode {
+  0% {
+    transform: translateY(0) rotate3d(1, 1, 0, 0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(120vh) rotate3d(1, 1, 0, 720deg);
+    opacity: 0;
+  }
+}
+
+
+/* ===== HEADER HACKER ===== */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #000, #001a0d);
+  padding: 30px 70px;
+  border-bottom: 2px solid #00ff99;
+  box-shadow: 0 0 25px #00ff99;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo Hacker */
+.logo {
+  font-size: 2.6rem;
+  font-weight: bold;
+  color: #00ff99;
+  letter-spacing: 4px;
+  text-shadow: 0 0 10px #00ff99;
+}
+.logo::before {
+  content: "</";
+  color: #ff00cc;
+}
+.logo::after {
+  content: ">";
+  color: #ff00cc;
+}
+
+/* Menu estilo terminal */
+.terminal-menu {
+  display: flex;
+  gap: 45px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.terminal-menu a {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #00ff99;
+  text-decoration: none;
+  position: relative;
+  transition: 0.3s;
+}
+
+.terminal-menu a::before {
+  content: ">_ ";
+  color: #ff00cc;
+  opacity: 0.9;
+}
+
+.terminal-menu a:hover {
+  color: #000;
+  background: #00ff99;
+  padding: 10px 18px;
+  border-radius: 8px;
+  box-shadow: 0 0 25px #00ff99, 0 0 50px #00ff99;
+  transform: scale(1.1);
+}
+
+/* Efeito piscando */
+@keyframes blinkMenu {
+  50% {
+    opacity: 0.6;
+  }
+}
+.terminal-menu a {
+  animation: blinkMenu 2s infinite;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 1024px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .terminal-menu {
+    justify-content: center;
+    gap: 25px;
+  }
+
+  .terminal-menu a {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo {
+    font-size: 2rem;
+  }
+
+  .terminal-menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .terminal-menu a {
+    font-size: 1.4rem;
+  }
+}
+
+
+/* ================== ESTATÍSTICAS COMPLETO ================== */
+#estatisticas {
+  padding-top: 180px; 
+  padding-bottom: 60px;
+  background: #0d0d0d;
+  color: #fff;
+  font-family: 'Fira Code', monospace;
+  text-align: center;
+  scroll-margin-top: 180px;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #00ccff;
+  text-shadow: 0 0 8px #00ccff;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: #aaa;
+  margin-bottom: 40px;
+}
+
+/* GRID PRINCIPAL */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* CARDS */
+.stat-card {
+  position: relative;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 12px;
+  padding: 25px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 255, 153, 0.3); 
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-left: 4px solid #00ff99; 
+}
+
+/* Efeito neon suave que passa */
+.stat-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(0, 255, 153, 0) 0%,
+    rgba(0, 255, 153, 0.4) 50%,
+    rgba(0, 255, 153, 0) 100%
+  );
+  transform: skewX(-20deg);
+  transition: all 0.5s;
+}
+
+/* Ativar a animação ao passar o mouse */
+.stat-card:hover::before {
+  left: 125%;
+  transition: all 0.7s;
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 20px rgba(0, 255, 153, 0.5); 
+}
+
+
+/* ICONES */
+.stat-icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  animation: glowIcon 2s infinite alternate;
+}
+
+@keyframes glowIcon {
+  0% { text-shadow: 0 0 5px #00ccff; }
+  50% { text-shadow: 0 0 20px #00ff99; }
+  100% { text-shadow: 0 0 5px #00ccff; }
+}
+
+/* NUMEROS ANIMADOS */
+.stat-number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #00ccff;
+  text-shadow: 0 0 5px #00ccff;
+  margin: 10px 0;
+}
+
+/* DESCRICAO */
+.stat-desc {
+  font-size: 0.9rem;
+  color: #00e6e6;
+  text-shadow: 0 0 3px #00e6e6;
+}
+
+/* LISTAS */
+.stat-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.stat-list li {
+  margin: 5px 0;
+  color: #00e6e6;
+  text-shadow: 0 0 3px #00e6e6;
+}
+
+/* LINK GITHUB */
+.stat-link {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 8px 12px;
+  border: 1px solid #00ccff;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #00ccff;
+  text-shadow: 0 0 5px #00ccff;
+  transition: all 0.3s ease;
+}
+
+.stat-link:hover {
+  background: #00ccff;
+  color: #0d0d0d;
+  box-shadow: 0 0 15px #00ccff;
+}
+
+/* BADGES */
+.badges {
+  margin-top: 50px;
+}
+
+.badges h3 {
+  color: #00ff99;
+  text-shadow: 0 0 6px #00ff99;
+  margin-bottom: 20px;
+}
+
+.badges-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.badge {
+  padding: 8px 15px;
+  border: 1px solid #00ff99;
+  border-radius: 8px;
+  color: #00ff99;
+  text-shadow: 0 0 4px #00ff99;
+  background: rgba(0, 255, 153, 0.1);
+  transition: 0.3s;
+}
+
+.badge:hover {
+  background: #00ff99;
+  color: #0d0d0d;
+  box-shadow: 0 0 15px #00ff99;
+}
+
+/* ================== RESPONSIVO ================== */
+
+/* Tablets / notebooks menores */
+@media (max-width: 1024px) {
+  #estatisticas {
+    padding-top: 160px;
+    scroll-margin-top: 160px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+}
+
+/* Notebooks / tablets */
+@media (max-width: 900px) {
+  #estatisticas {
+    padding-top: 200px;
+    scroll-margin-top: 200px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .stat-card {
+    padding: 20px;
+  }
+
+  .stat-number {
+    font-size: 1.8rem;
+  }
+
+  .stat-icon {
+    font-size: 1.8rem;
+  }
+
+  .badge {
+    font-size: 1.3rem;
+    padding: 6px 12px;
+  }
+}
+
+/* Celulares */
+@media (max-width: 600px) {
+  #estatisticas {
+    padding-top: 140px;
+    scroll-margin-top: 140px;
+    padding-bottom: 40px;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .stat-card {
+    padding: 15px;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+  }
+
+  .stat-icon {
+    font-size: 1.5rem;
+  }
+
+  .stat-desc,
+  .stat-list li {
+    font-size: 0.85rem;
+  }
+
+  .stat-link {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+  }
+
+  .badges-grid {
+    gap: 10px;
+  }
+
+  .badge {
+    padding: 5px 10px;
+    font-size: 0.85rem;
+  }
+}
+
+/* ===== Rodapé ===== */
+.footer {
+  background: #000;
+  color: #888;
+  padding: 20px;
+  font-size: 1.8rem; 
+  border-top: 1px solid #222;
+}

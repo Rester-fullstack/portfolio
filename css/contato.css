@@ -1,0 +1,366 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: monospace;
+}
+
+body {
+  position: relative;
+  background: #000;
+  color: #00ff99;
+  overflow-x: hidden;
+}
+
+/* ===== FUNDO ANIMADO ===== */
+#digitalWaves {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; 
+}
+
+
+/* ===== HEADER HACKER ===== */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #000, #001a0d);
+  padding: 30px 70px;
+  border-bottom: 2px solid #00ff99;
+  box-shadow: 0 0 25px #00ff99;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo Hacker */
+.logo {
+  font-size: 2.6rem;
+  font-weight: bold;
+  color: #00ff99;
+  letter-spacing: 4px;
+  text-shadow: 0 0 10px #00ff99;
+}
+.logo::before {
+  content: "</";
+  color: #ff00cc;
+}
+.logo::after {
+  content: ">";
+  color: #ff00cc;
+}
+
+/* Menu estilo terminal */
+.terminal-menu {
+  display: flex;
+  gap: 45px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.terminal-menu a {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #00ff99;
+  text-decoration: none;
+  position: relative;
+  transition: 0.3s;
+}
+
+.terminal-menu a::before {
+  content: ">_ ";
+  color: #ff00cc;
+  opacity: 0.9;
+}
+
+.terminal-menu a:hover {
+  color: #000;
+  background: #00ff99;
+  padding: 10px 18px;
+  border-radius: 8px;
+  box-shadow: 0 0 25px #00ff99, 0 0 50px #00ff99;
+  transform: scale(1.1);
+}
+
+/* Efeito piscando */
+@keyframes blinkMenu {
+  50% {
+    opacity: 0.6;
+  }
+}
+.terminal-menu a {
+  animation: blinkMenu 2s infinite;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 1024px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .terminal-menu {
+    justify-content: center;
+    gap: 25px;
+  }
+
+  .terminal-menu a {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo {
+    font-size: 2rem;
+  }
+
+  .terminal-menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .terminal-menu a {
+    font-size: 1.4rem;
+  }
+}
+
+
+/* ===== CONTATO SECTION ===== */
+.contato-section {
+  position: relative;
+  z-index: 1; 
+  max-width: 90vw; 
+  margin: 15vh auto 5vh;
+  padding: 5vh 5vw;
+  background: rgba(0, 0, 0, 0.7);
+  border: 0.2rem solid #00ff99;
+  border-radius: 1rem;
+  box-shadow: 0 0 2rem #00ff99, 0 0 4rem #00ff99 inset;
+  backdrop-filter: blur(5px);
+  color: #00ff99;
+}
+
+/* Título principal */
+.contato-section h1 {
+  font-size: clamp(2rem, 4vw, 3rem); 
+  margin-bottom: 2vh;
+  text-shadow: 0 0 1rem #00ff99, 0 0 2rem #00ff99;
+  text-align: center;
+}
+
+/* Texto introdutório */
+.contato-section .intro {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 4vh;
+}
+
+.contato-section .intro span {
+  color: #ff00cc;
+  font-weight: bold;
+  text-shadow: 0 0 1rem #ff00cc;
+}
+
+/* ===== FORMULÁRIO ===== */
+.contato-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+.contato-form label {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+}
+
+.contato-form input,
+.contato-form textarea {
+  padding: 1.2vh 1vw;
+  border: 0.15rem solid #00ff99;
+  border-radius: 0.8rem;
+  background: rgba(0, 0, 0, 0.5);
+  color: #00ff99;
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  outline: none;
+  transition: 0.3s;
+}
+
+.contato-form input:focus,
+.contato-form textarea:focus {
+  border-color: #ff00cc;
+  box-shadow: 0 0 1.5rem #ff00cc;
+}
+
+/* Botão */
+.contato-form button {
+  padding: 1.5vh 1vw;
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  font-weight: bold;
+  color: #000;
+  background: #00ff99;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 2rem #00ff99;
+}
+
+.contato-form button:hover {
+  background: #ff00cc;
+  color: #fff;
+  box-shadow: 0 0 2rem #ff00cc, 0 0 4rem #ff00cc inset;
+  transform: scale(1.05);
+}
+
+/* ===== LINKS DIRETOS ===== */
+.contato-links {
+  margin-top: 5vh;
+  text-align: center;
+}
+
+.contato-links h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 2vh;
+  text-shadow: 0 0 1rem #00ff99;
+}
+
+.contato-links ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 3vw;
+  flex-wrap: wrap;
+}
+
+.contato-links ul li a {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  color: #00ff99;
+  text-decoration: none;
+  transition: 0.3s;
+  position: relative;
+}
+
+.contato-links ul li a::before {
+  content: ">_ ";
+  color: #ff00cc;
+}
+
+.contato-links ul li a:hover {
+  color: #000;
+  background: #00ff99;
+  padding: 0.5vh 1vw;
+  border-radius: 0.8rem;
+  box-shadow: 0 0 1.5rem #00ff99, 0 0 3rem #00ff99 inset;
+  transform: scale(1.05);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  margin-bottom: 2vh;
+  color: #00ff99;
+}
+
+/* ===== RESPONSIVO TOTAL ===== */
+@media (max-width: 480px) {
+  .contato-section {
+    padding: 4vh 4vw;
+    margin: 10vh 3vw 5vh;
+  }
+
+  .contato-form button {
+    font-size: clamp(1rem, 3vw, 1.3rem);
+  }
+
+  .contato-links ul {
+    flex-direction: column;
+    gap: 2vh;
+  }
+}
+
+/* ===== Rodapé ===== */
+.footer {
+  color: #888;
+  padding: 1.2rem;
+  font-size: clamp(1rem, 1.5vw, 1.8rem); 
+  border-top: 1px solid #222;
+  position: relative;
+  z-index: 1;
+  text-align: center; 
+}
+
+.footer p {
+  margin: 0.5rem 0;
+}
+
+.footer p span {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.footer p span:hover {
+  transform: scale(1.3) rotate(10deg);
+}
+
+/* Estilizar o easter-egg */
+.footer .easter-egg {
+  font-size: clamp(1.0rem, 1.8vw, 1.8rem); 
+  opacity: 0.6;
+  transition: opacity 0.3s ease, color 0.3s ease;
+  font-family: monospace; 
+  position: relative;
+  word-break: break-word; 
+}
+
+/* Criar o cursor piscando no fim do texto */
+.footer .easter-egg::after {
+  content: "_";
+  margin-left: 5px;
+  animation: blink 1s infinite;
+  color: #00ff99;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.footer .easter-egg:hover {
+  opacity: 1;
+  color: #00ff99; 
+  cursor: pointer;
+}
+
+/* ===== Responsividade extra ===== */
+@media (max-width: 768px) {
+  .footer {
+    font-size: 1.2rem;
+    padding: 15px;
+  }
+
+  .footer .easter-egg {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .footer .easter-egg {
+    font-size: 0.8rem;
+  }
+}

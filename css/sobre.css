@@ -1,0 +1,344 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: monospace;
+}
+
+body {
+  position: relative;
+  background: #000;
+  color: #00ff99;
+  overflow-x: hidden;
+}
+
+/* ===== CANVAS DE FUNDO ===== */
+#stars-bg {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; 
+  background: #000;
+  overflow: hidden;
+}
+
+/* ===== HEADER HACKER ===== */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #000, #001a0d);
+  padding: 30px 70px;
+  border-bottom: 2px solid #00ff99;
+  box-shadow: 0 0 25px #00ff99;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo Hacker */
+.logo {
+  font-size: 2.6rem;
+  font-weight: bold;
+  color: #00ff99;
+  letter-spacing: 4px;
+  text-shadow: 0 0 10px #00ff99;
+}
+.logo::before {
+  content: "</";
+  color: #ff00cc;
+}
+.logo::after {
+  content: ">";
+  color: #ff00cc;
+}
+
+/* Menu estilo terminal */
+.terminal-menu {
+  display: flex;
+  gap: 45px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.terminal-menu a {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #00ff99;
+  text-decoration: none;
+  position: relative;
+  transition: 0.3s;
+}
+
+.terminal-menu a::before {
+  content: ">_ ";
+  color: #ff00cc;
+  opacity: 0.9;
+}
+
+.terminal-menu a:hover {
+  color: #000;
+  background: #00ff99;
+  padding: 10px 18px;
+  border-radius: 8px;
+  box-shadow: 0 0 25px #00ff99, 0 0 50px #00ff99;
+  transform: scale(1.1);
+}
+
+/* Efeito piscando */
+@keyframes blinkMenu {
+  50% {
+    opacity: 0.6;
+  }
+}
+.terminal-menu a {
+  animation: blinkMenu 2s infinite;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 1024px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .terminal-menu {
+    justify-content: center;
+    gap: 25px;
+  }
+
+  .terminal-menu a {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo {
+    font-size: 2rem;
+  }
+
+  .terminal-menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .terminal-menu a {
+    font-size: 1.4rem;
+  }
+}
+
+/* ===== SEÇÃO SOBRE MIM ===== */
+.sobre-mim {
+  margin-top: 120px; 
+  padding: 60px 10% 80px 10%;
+  scroll-margin-top: 120px; 
+  
+  min-height: calc(100vh - 120px); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.sobre-conteudo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.7);
+  padding: 40px;
+  border-radius: 12px;
+  border: 2px solid #00ff99;
+  box-shadow: 0 0 25px #00ff99, 0 0 50px #ff00cc;
+}
+
+/* ===== TEXTO ===== */
+.sobre-conteudo .texto {
+  flex: 1 1 500px;
+  color: #e0ffe6;
+  line-height: 1.8;
+}
+
+.sobre-conteudo .texto h2 {
+  font-size: 2.8rem;
+  margin-bottom: 25px;
+  color: #00ff99;
+  text-shadow: 0 0 10px #00ff99;
+}
+
+.cursor {
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.sobre-conteudo .texto p {
+  font-size: 1.2rem;
+  margin-bottom: 18px;
+}
+
+.sobre-conteudo .texto .highlight {
+  color: #ff00cc;
+  font-weight: bold;
+  text-shadow: 0 0 8px #ff00cc;
+}
+
+.sobre-conteudo .texto a {
+  color: #00ff99;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 1px dashed #00ff99;
+  transition: 0.3s;
+}
+.sobre-conteudo .texto a:hover {
+  color: #ff00cc;
+  border-color: #ff00cc;
+}
+
+/* ===== FOTO ÚNICA ===== */
+.foto-unica {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0;
+}
+
+.foto-unica img {
+  width: min(350px, 80vw);  
+  aspect-ratio: 1/1;      
+  object-fit: cover;
+  border-radius: 50%;       
+  border: 5px solid #00ff99;
+  box-shadow: 0 0 25px rgba(0, 255, 153, 0.8);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.foto-unica img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 50px rgba(0, 255, 153, 1);
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 1024px) {
+  .sobre-mim {
+    padding: calc(100px + 30px) 5% 60px 5%; 
+  }
+
+  .sobre-conteudo {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .sobre-conteudo .texto {
+    text-align: center;
+  }
+
+  .sobre-conteudo .texto h2 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .sobre-mim {
+    padding: calc(80px + 20px) 5% 50px 5%; 
+  }
+
+  .sobre-conteudo {
+    padding: 25px;
+  }
+
+  .sobre-conteudo .texto p {
+    font-size: 1rem;
+  }
+
+  .foto-unica img {
+    width: min(250px, 70vw);
+  }
+}
+
+/* Section Atualmente v2 */
+.atualmente-v2 {
+  margin-top: 60px; 
+  margin-bottom: 90px;
+  padding: 60px 20px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.6); 
+  color: #00ff99;
+  border-radius: 12px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 25px rgba(0, 255, 153, 0.2);
+}
+
+.atualmente-v2 h2 {
+  font-size: 2.6rem;
+  margin-bottom: 40px;
+  text-shadow: 0 0 12px #00ff99, 0 0 25px #00ffaa;
+  border-bottom: 2px solid #00ff99;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+/* Cards container */
+.cards-status {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+/* Card */
+.card-status {
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid #00ff99;
+  border-radius: 16px;
+  padding: 35px 25px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0, 255, 153, 0.3);
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-status:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 0 25px #00ff99, 0 0 40px rgba(0, 255, 153, 0.6);
+}
+
+.card-status .icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  display: block;
+  text-shadow: 0 0 12px #00ffcc;
+}
+
+.card-status h3 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  color: #00ffaa;
+}
+
+.card-status p {
+  font-size: 1rem;
+  color: #caffea;
+  line-height: 1.5;
+}
+
+
+/* Rodapé */
+.footer {
+  background: #000;
+  color: #888;
+  padding: 20px;
+  font-size: 1.8rem; 
+  border-top: 1px solid #222;
+}
+

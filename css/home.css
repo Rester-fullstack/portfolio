@@ -1,0 +1,778 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: monospace;
+}
+
+/* ===== NOVO BACKGROUND ===== */
+body {
+  position: relative;
+  background: #000;
+  color: #00ff99;
+  overflow-x: hidden;
+}
+
+canvas#bg-effect-home {
+  position: fixed;      
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;         
+}
+
+/* ===== HEADER HACKER ===== */
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #000, #001a0d);
+  padding: 30px 70px; 
+  border-bottom: 2px solid #00ff99;
+  box-shadow: 0 0 25px #00ff99;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo Hacker */
+.logo {
+  font-size: 2.6rem; 
+  font-weight: bold;
+  color: #00ff99;
+  letter-spacing: 4px;
+  text-shadow: 0 0 10px #00ff99;
+}
+.logo::before {
+  content: "</";
+  color: #ff00cc;
+}
+.logo::after {
+  content: ">";
+  color: #ff00cc;
+}
+
+/* Menu estilo terminal */
+.terminal-menu {
+  display: flex;
+  gap: 45px; 
+}
+
+.terminal-menu a {
+  font-size: 1.8rem; 
+  font-weight: bold;
+  color: #00ff99;
+  text-decoration: none;
+  position: relative;
+  transition: 0.3s;
+}
+
+.terminal-menu a::before {
+  content: ">_ ";
+  color: #ff00cc;
+  opacity: 0.9;
+}
+
+.terminal-menu a:hover {
+  color: #000;
+  background: #00ff99;
+  padding: 10px 18px;
+  border-radius: 8px;
+  box-shadow: 0 0 25px #00ff99, 0 0 50px #00ff99;
+  transform: scale(1.1);
+}
+
+/* Efeito piscando */
+@keyframes blinkMenu {
+  50% { opacity: 0.6; }
+}
+.terminal-menu a {
+  animation: blinkMenu 2s infinite;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 1024px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .terminal-menu {
+    justify-content: center;
+    gap: 25px;
+  }
+
+  .terminal-menu a {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo {
+    font-size: 2rem;
+  }
+
+  .terminal-menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .terminal-menu a {
+    font-size: 1.4rem;
+  }
+}
+
+
+/* ===== SECTIONS ===== */
+.sec { 
+  min-height: auto; 
+  padding: 0; 
+}
+.sec h1, 
+.sec p { 
+  font-size: inherit; 
+  max-width: none; 
+}
+
+/* ===== HOME ===== */
+.home-content {
+  position: relative;
+  text-align: center;
+  margin-top: 150px;
+}
+
+.home-content h1 {
+  font-size: 2.5rem;
+}
+
+.blink {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+
+
+/* ===== HOME SECTION ===== */
+.home-content {
+  max-width: 1200px;
+  padding: clamp(40px, 5vw, 100px) clamp(20px, 5vw, 80px);
+  border: 3px solid #00ff99;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.88);
+  box-shadow: 0 0 35px #00ff99, inset 0 0 25px #00ff99;
+  animation: glow 1.5s infinite alternate;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: clamp(100px, 15vh, 180px);
+  position: relative;
+}
+
+/* Título principal */
+.home-content h1 {
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-weight: bold;
+  margin-bottom: 25px;
+  overflow: hidden;
+  border-right: 4px solid #00ff99;
+  text-shadow: 0 0 15px #00ff99;
+  white-space: normal;
+  line-height: 1.2;
+}
+
+/* Subtítulo */
+.subtitle {
+  font-size: clamp(1.4rem, 3vw, 2.5rem);
+  margin-bottom: 50px;
+  color: #ff00cc;
+  overflow: hidden;
+  border-right: 3px solid #ff00cc;
+  text-shadow: 0 0 10px #ff00cc;
+  white-space: normal;
+  line-height: 1.3;
+}
+
+/* Logs */
+.home-logs {
+  text-align: left;
+  font-size: clamp(1rem, 2vw, 1.8rem);
+  margin-bottom: 40px;
+  min-height: 180px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px 20px;
+  border-left: 3px solid #00ff99;
+  box-shadow: inset 0 0 10px #00ff99;
+  overflow-wrap: break-word;
+}
+
+/* Lista de curiosidades */
+.fun-facts {
+  font-size: clamp(1rem, 2vw, 1.8rem);
+  color: #ccc;
+  margin-bottom: 50px;
+  text-align: left;
+}
+
+.fun-facts p {
+  margin: 12px 0;
+}
+
+.highlight {
+  color: #00ff99;
+  font-weight: bold;
+}
+
+/* Animação brilho */
+@keyframes glow {
+  from { box-shadow: 0 0 35px #00ff99, inset 0 0 15px #00ff99; }
+  to { box-shadow: 0 0 50px #00ff99, inset 0 0 25px #00ff99; }
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .home-content {
+    padding: 40px 20px;
+    margin-top: 200px;
+  }
+  .home-logs, .fun-facts {
+    font-size: 1.2rem;
+  }
+}
+
+
+
+/* ===== SOBRE MIM FUTURISTA ===== */
+.sobre-section {
+  margin-top: clamp(140px, 18vh, 220px);
+  background: linear-gradient(120deg, #050505, #0a0f0f);
+  padding: 100px 60px;
+  color: #eee;
+  font-family: 'Chakra Petch', monospace;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Elementos de fundo */
+.sobre-section::before,
+.sobre-section::after {
+  content: "";
+  position: absolute;
+  background: radial-gradient(circle, rgba(0,255,153,0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.sobre-section::before {
+  width: 500px;
+  height: 500px;
+  top: -200px;
+  left: -150px;
+}
+
+.sobre-section::after {
+  width: 400px;
+  height: 400px;
+  bottom: -150px;
+  right: -100px;
+}
+
+/* Container geral */
+.sobre-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 70px;
+  width: 100%; 
+  padding-left: 60px; 
+  padding-right: 20px;
+}
+
+/* Texto principal */
+.sobre-info {
+  flex: 1.2;
+  min-width: 500px;
+}
+
+.sobre-title {
+  font-size: 4rem;
+  color: #00ff99;
+  text-shadow: 0 0 20px #00ff99, 0 0 40px #00ff99;
+  margin-bottom: 35px;
+}
+
+.highlight {
+  color: #ff00cc;
+}
+
+.sobre-line {
+  font-size: 1.6rem;
+  margin-bottom: 18px;
+  line-height: 1.8;
+  max-width: 90%;
+}
+
+/* Comandos soltos */
+.sobre-side-elements {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.code-box {
+  background: rgba(0, 0, 0, 0.85);
+  color: #00ff99;
+  border: 2px solid #00ff99;
+  padding: 12px 18px;
+  font-size: 1.3rem;
+  border-radius: 6px;
+  box-shadow: 0 0 15px #00ff99;
+  animation: flicker 1.8s infinite alternate;
+  transform: rotate(calc(var(--angle, 0) * 1deg));
+}
+
+.code-box:nth-child(1) { --angle: -3; }
+.code-box:nth-child(2) { --angle: 2; }
+.code-box:nth-child(3) { --angle: -1; }
+.code-box:nth-child(4) { --angle: 3; }
+.code-box:nth-child(5) { --angle: -2; }
+
+/* Efeito piscar */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  45% { opacity: 0.8; }
+  50% { opacity: 0.6; }
+  55% { opacity: 0.8; }
+  90% { opacity: 1; }
+}
+
+/* Responsivo */
+@media (max-width: 1100px) {
+  .sobre-container {
+    flex-direction: column;
+    gap: 50px;
+  }
+  .sobre-info {
+    min-width: unset;
+  }
+}
+
+@media (max-width: 600px) {
+  .sobre-title {
+    font-size: 2.5rem;
+  }
+  .sobre-line {
+    font-size: 1.2rem;
+  }
+  .code-box {
+    font-size: 1rem;
+    padding: 8px 14px;
+  }
+}
+
+/* ===== SECTION PROJETOS CUSTOM ===== */
+.projetos-section {
+  background: linear-gradient(120deg, #050505, #0a0f0f);
+  padding: 120px 60px;
+  color: #eee;
+  font-family: 'Chakra Petch', monospace;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Título estilizado com glitch */
+.projetos-title {
+  font-size: clamp(2.5rem, 5vw, 3.2rem);
+  color: #00ff99;
+  text-shadow: 0 0 10px #00ff99;
+  margin-bottom: 60px;
+  transform: skew(-2deg);
+}
+.projetos-title::before {
+  content: "</dock>";
+  color: #ff00cc;
+  margin-right: 12px;
+}
+
+/* Grid fluido irregular */
+.projetos-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Cards glitch */
+.projeto-card {
+  background: rgba(0, 0, 0, 0.75);
+  border: 2px solid #00ff99;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #00ff99;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  min-height: 280px; 
+}
+
+.projeto-card:hover {
+  transform: rotate(0deg) scale(1.07);
+  border-color: #ff00cc;
+  box-shadow: 0 0 30px #ff00cc;
+}
+
+/* Títulos com trocadilho */
+.projeto-card h3 {
+  color: #00ff99;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  position: relative;
+}
+.projeto-card h3::after {
+  content: " // rodando ideias";
+  font-size: 1.0rem;
+  color: #ff00cc;
+  margin-left: 6px;
+}
+
+/* Efeito de digitação na descrição */
+.projeto-card p {
+  font-size: 1.3rem;
+  color: #ccc;
+  line-height: 1.5;
+  flex-grow: 1; 
+  margin-bottom: 15px;
+  min-height: 60px; 
+  position: relative;
+}
+.projeto-card:not(:hover) p {
+  overflow: hidden;
+  border-right: 2px solid #00ff99;
+  width: 0;
+  animation: typing 1.5s 0.2s forwards, blinkDescr 0.7s infinite 2s;
+}
+.projeto-card:hover p {
+  width: auto;
+  border-right: none;
+  animation: none;
+}
+
+@keyframes typing {
+  to { width: 100%; }
+}
+@keyframes blinkDescr {
+  50% { border-color: transparent; }
+}
+
+/* Botão estilo terminal */
+.projeto-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  color: #00ff99;
+  border: 1px solid #00ff99;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 1.2rem;
+}
+.projeto-btn:hover {
+  background: #00ff99;
+  color: #000;
+  box-shadow: 0 0 20px #00ff99;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .projetos-title {
+    text-align: center;
+    transform: skew(0);
+  }
+  .projetos-container {
+    gap: 30px;
+  }
+}
+
+
+/* ===== SECTION SKILLS ===== */
+.skills-section {
+  padding: 80px 50px;
+  background: black;
+  color: #fff;
+  text-align: center;
+  border-top: 2px solid #00ff99;
+  border-bottom: 2px solid #00ff99;
+}
+
+.skills-title h2 {
+  font-size: 2.5rem;
+  color: #00ff99;
+  text-shadow: 0 0 8px #00ff99, 0 0 15px #00ff99;
+  animation: glitchText 2s infinite;
+}
+
+.skills-title p {
+  font-size: 2rem;
+  color: #ff00cc;
+  margin-bottom: 40px;
+}
+
+.neon-pink {
+  color: #ff00cc;
+  text-shadow: 0 0 8px #ff00cc, 0 0 15px #ff00cc;
+}
+
+/* Grid de habilidades */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.skill-card {
+  background: rgba(0, 255, 153, 0.05);
+  border: 2px solid #00ff99;
+  border-radius: 10px;
+  padding: 20px;
+  transition: 0.3s;
+  box-shadow: 0 0 15px rgba(0, 255, 153, 0.2);
+}
+
+.skill-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 20px #00ff99, 0 0 40px #00ff99;
+  background: rgba(0, 255, 153, 0.1);
+}
+
+.skill-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 15px;
+  color: #00ff99;
+  animation: pulseNeon 1.5s infinite;
+}
+
+.skill-card h3 {
+  font-size: 1.4rem;
+  color: #ff00cc;
+  text-shadow: 0 0 8px #ff00cc;
+  margin-bottom: 10px;
+}
+
+.skill-card p {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+/* ===== EFEITOS ===== */
+@keyframes glitchText {
+  0% { text-shadow: 0 0 5px #00ff99, 2px 0 #ff00cc; }
+  20% { text-shadow: -2px 0 #ff00cc, 0 0 5px #00ff99; }
+  40% { text-shadow: 2px 0 #ff00cc, -2px 0 #00ff99; }
+  60% { text-shadow: 0 0 5px #00ff99, 2px 0 #ff00cc; }
+  80% { text-shadow: -2px 0 #ff00cc, 0 0 5px #00ff99; }
+  100% { text-shadow: 0 0 5px #00ff99, 0 0 10px #ff00cc; }
+}
+
+@keyframes pulseNeon {
+  0%, 100% { text-shadow: 0 0 5px #00ff99, 0 0 10px #00ff99; }
+  50% { text-shadow: 0 0 15px #00ff99, 0 0 25px #00ff99; }
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+  .skills-section {
+    padding: 50px 20px;
+  }
+  .skills-title h2 {
+    font-size: 2rem;
+  }
+  .skills-title p {
+    font-size: 1rem;
+  }
+}
+
+/* ===== ESTATÍSTICAS FANCY ===== */
+.stats-fancy {
+  background: #0a0a0a;
+  padding: 80px 20px;
+  font-family: 'Chakra Petch', monospace;
+  color: #eee;
+}
+
+.stats-title {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  text-align: center;
+  text-shadow: 0 0 10px #00ffcc;
+}
+
+.highlight {
+  color: #ff00cc;
+}
+
+.stat-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 30px 0;
+  padding: 20px;
+  border-left: 5px solid #00ffcc;
+  background: linear-gradient(90deg, rgba(0,255,204,0.05), rgba(255,0,204,0.05));
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-row.alt {
+  flex-direction: row-reverse;
+  border-left: none;
+  border-right: 5px solid #ff00cc;
+}
+
+.stat-icon {
+  font-size: 3rem;
+  flex-shrink: 0;
+}
+
+.stat-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-number {
+  font-size: 1.8rem;
+  color: #00ffcc;
+  text-shadow: 0 0 5px #00ffcc;
+}
+
+.stat-label {
+  font-size: 1.9rem;
+  color: #ccc;
+}
+
+.stat-label em {
+  color: #ff00cc;
+  font-style: normal;
+}
+
+/* Animação de código passando */
+.stat-row::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 150%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0,255,204,0.15), transparent);
+  animation: code-scan 3s infinite linear;
+}
+
+@keyframes code-scan {
+  0% { left: -150%; }
+  100% { left: 150%; }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .stat-row, .stat-row.alt {
+    flex-direction: column;
+    text-align: center;
+  }
+  .stat-icon {
+    font-size: 2.5rem;
+  }
+}
+
+/* ===== CONTATO ===== */
+.contact-section {
+  background: #0d0d0d;
+  padding: 80px 20px; 
+  text-align: center;
+  color: #eee;
+  font-family: 'Chakra Petch', monospace;
+}
+
+.contact-console {
+  background: #000;
+  padding: 30px; 
+  border-radius: 12px;
+  border: 2px solid #00ffcc;
+  max-width: 700px; 
+  margin: 0 auto 40px;
+  text-align: left;
+  font-size: 1.8rem; 
+  box-shadow: 0 0 20px rgba(0,255,204,0.3);
+}
+
+.console-line {
+  margin: 8px 0;
+}
+
+.console-line.success {
+  color: #00ffcc;
+}
+
+.blink {
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to { visibility: hidden; }
+}
+
+.highlight {
+  color: #ff00cc;
+}
+
+/* Botões de contato */
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-contact {
+  background: linear-gradient(90deg, #00ffcc, #ff00cc);
+  padding: 16px 28px; 
+  border-radius: 10px;
+  color: #000;
+  font-weight: bold;
+  font-size: 1.8rem; 
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-contact:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 15px #00ffcc, 0 0 20px #ff00cc;
+}
+
+/* Rodapé */
+.footer {
+  background: #000;
+  color: #888;
+  padding: 20px;
+  font-size: 1.8rem; 
+  border-top: 1px solid #222;
+}
+
+/* ===== SECTIONS SEM FUNDO SÓLIDO ===== */
+.sobre-section,
+.projetos-section,
+.skills-section,
+.stats-fancy,
+.contact-section {
+  background: rgba(0,0,0,0.7); /* semi-transparente para o canvas aparecer atrás */
+}
+
