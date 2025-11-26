@@ -4,4 +4,4 @@ Meu portfólio web apresenta meus projetos, habilidades e informações de conta
 
 Tecnologias: HTML, CSS, JavaScript
 
-Link: https://Rester-fullstack.github.io/portfolio/
+
