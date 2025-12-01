@@ -1,62 +1,90 @@
-# 🌐 Portfólio — Ester da Costa Batista
+<h1 align="center">🌐 Portfólio — Ester da Costa Batista</h1>
 
-Bem-vindo(a) ao meu portfólio!  
-Aqui apresento meus **projetos**, **experiências**, **habilidades técnicas** e formas de contato.  
-Este site foi desenvolvido durante meu curso técnico em **Análise e Desenvolvimento de Sistemas** e aprimorado com cursos online focados em desenvolvimento web e back-end com C#.
-
----
-
-## ✨ Sobre o projeto
-
-Este portfólio foi criado para apresentar de forma clara e objetiva:
-
-- Meus principais projetos desenvolvidos em **C#**, **.NET**, **Python**, **SQL**, **HTML**, **CSS** e **JavaScript**.  
-- Minha trajetória no desenvolvimento de software.  
-- Informações profissionais e contatos.  
-- Uma interface simples e moderna, totalmente responsiva.
+<p align="center">
+Meu site pessoal desenvolvido para apresentar meus projetos, trajetória, habilidades e formas de contato.  
+<br>
+Construído com HTML, CSS e JavaScript, totalmente responsivo e pensado para destacar meu crescimento como desenvolvedora.
+</p>
 
 ---
 
-## 🛠️ Tecnologias utilizadas
+## ✨ Sobre o Projeto
+
+Este portfólio foi criado para:
+
+- Apresentar meus **projetos desenvolvidos com C#, .NET, SQL, Python e Web**  
+- Mostrar minha trajetória como desenvolvedora  
+- Centralizar **informações profissionais e contatos**  
+- Exibir meu estilo visual e organização  
+- Servir como cartão de visitas profissional  
+
+A interface foi desenvolvida com foco em **simplicidade, clareza e responsividade**, garantindo boa visualização em celulares, tablets e desktops.
+
+---
+
+## 🛠️ Tecnologias Utilizadas
 
 - **HTML5**
 - **CSS3**
 - **JavaScript**
-- Organização em múltiplas páginas: sobre, projetos, estatísticas, contato e home.
+- Layout dividido em múltiplas páginas
+- Estrutura modular para fácil manutenção e expansão
 
 ---
 
-## 📂 Estrutura do projeto
+## 📂 Estrutura do Projeto
 
-📁 css/ → Estilos e temas visuais
-📁 js/ → Scripts e interações
-📁 img/ → Imagens do portfólio
-📁 docs/ → Documentos auxiliares
-📄 index.html → Página principal
-📄 home.html
-📄 sobre.html
-📄 projetos.html
-📄 estatistica.html
-📄 contato.html
+📁 portfolio/
+├── css/ → estilos, temas e responsividade
+├── js/ → scripts e funcionalidades
+├── img/ → imagens e ícones usados no site
+├── docs/ → documentação e materiais auxiliares
+├── index.html → página inicial
+├── home.html → seção principal
+├── sobre.html → trajetória e habilidades
+├── projetos.html → lista dos meus projetos
+├── estatistica.html → gráficos e insights
+└── contato.html → informações para contato
+
 
 ---
 
-## 🚀 Acesse meu portfólio
+## 🚀 Acesse o Portfólio
+
+👉 **Link do site hospedado:** *(adicione aqui quando publicar no GitHub Pages ou Netlify)*  
+Se quiser, posso te ajudar a hospedar! 😄
+
+---
+
+## 🧠 Principais Funcionalidades
+
+- Navegação entre páginas com transições suaves  
+- Seção exclusiva para **projetos com screenshot e descrição**
+- Página de **estatísticas interativas**
+- Página “Sobre mim” com informações profissionais
+- Página “Contato” com links diretos (email, LinkedIn, GitHub)  
+- Design responsivo (funciona em qualquer dispositivo)
 
 ---
 
 ## 💬 Contato
 
-- **Nome:** Ester da Costa Batista  
-- **LinkedIn:** https://www.linkedin.com/in/ester-da-costa-batista-929500295  
-- **E-mail:** ester.retse30@gmail.com  
-- **Cidade:** Aracaju - SE, Brasil  
+**Nome:** Ester da Costa Batista  
+**Email:** ester.retse30@gmail.com  
+**LinkedIn:** https://www.linkedin.com/in/ester-da-costa-batista-929500295  
+**Localização:** Aracaju — SE, Brasil  
 
 ---
 
-## 📌 Status do projeto  
-✔️ Finalizado — porém sempre em constante melhoria.
+## 📌 Status do Projeto
+
+✔️ **Finalizado**  
+🔧 **Recebendo melhorias contínuas** — atualizações visuais, novos projetos e refatorações sempre que possível.
 
 ---
 
-Feito com ❤️ e dedicação para demonstrar minha evolução como desenvolvedora.
+<p align="center">
+Feito com ❤️, código limpo e muita dedicação.  
+<br>
+<strong>— Ester</strong>
+</p>
