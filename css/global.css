@@ -1,0 +1,75 @@
+/* ===========================
+   RESET E BASE GLOBAL
+=========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: clamp(14px, 1.6vw, 18px);
+}
+
+body {
+  font-family: monospace;
+  background-color: #000;
+  color: #00ff88;
+}
+
+/* Containers e helpers */
+.container {
+  width: min(1200px, 90%);
+  margin: auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none;
+  }
+}
+
+
+/* ===========================
+   HEADER + MENU (RESPONSIVO)
+=========================== */
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;        /* ← PERMITE QUEBRAR */
+  padding: 15px 30px;
+  gap: 15px;              /* quando quebrar, mantém bonito */
+}
+
+/* Menu */
+.terminal-menu {
+  display: flex;
+  gap: 35px;
+  flex-wrap: wrap;        /* ← EVITA “engolir” ao dar zoom */
+  justify-content: center;
+}
+
+/* Links do menu */
+.terminal-menu a {
+  font-size: clamp(14px, 1.2vw, 18px);
+  white-space: nowrap;    /* texto não quebra no meio */
+}

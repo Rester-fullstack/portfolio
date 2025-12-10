@@ -26,8 +26,10 @@ canvas#bg-effect-home {
 
 header {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  row-gap: 15px;
   background: linear-gradient(90deg, #000, #001a0d);
   padding: 30px 70px; 
   border-bottom: 2px solid #00ff99;
@@ -59,6 +61,7 @@ header {
 .terminal-menu {
   display: flex;
   gap: 45px; 
+  flex-wrap: wrap;
 }
 
 .terminal-menu a {
