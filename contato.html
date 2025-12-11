@@ -11,14 +11,17 @@
 <body>
 
   <canvas id="digitalWaves"></canvas>
-  <header>
+ <header>
     <div class="logo">CodeCraft</div>
-    <nav class="terminal-menu">
-      <a href="home.html" title="Entrar no sistema">Home</a>
-      <a href="sobre.html" title="Quem é o dev?">Sobre</a>
-      <a href="projetos.html" title="Compilar ideias">Projetos</a>
-      <a href="estatistica.html" title="Logs da vida">Estatísticas</a>
-      <a href="contato.html" title="Ping me">Contato</a>
+
+    <button class="menu-btn" id="menu-btn">☰</button>
+
+    <nav class="terminal-menu" id="mobile-menu">
+      <a href="home.html">Home</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="projetos.html">Projetos</a>
+      <a href="estatistica.html">Estatísticas</a>
+      <a href="contato.html">Contato</a>
     </nav>
   </header>
 
@@ -48,7 +51,6 @@
     <div class="contato-links">
       <h2>🔗 Me encontre também</h2>
       <ul>
-        <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=ester.retse30@gmail.com" target="_blank">📧 E-mail</a></li>
         <li><a href="https://www.linkedin.com/in/ester-da-costa-batista-929500295" target="_blank">💼 LinkedIn</a></li>
         <li><a href="https://github.com/Rester-fullstack" target="_blank">💻 GitHub</a></li>
         <li><a href="#curriculo-section" id="curriculo-link">📄 Currículo</a></li>
@@ -108,7 +110,8 @@
     <p>© 2025 Rester • Compilado com ☕ e ❤️</p>
     <p class="easter-egg">⚠️ sudo contato → nada acontece 😅</p>
   </footer>
-
+  
+  <script src="js/global.js"></script>
   <script src="js/contato.js"></script>
 </body>
 </html>

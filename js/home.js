@@ -9,6 +9,7 @@ const fontSize = 16;
 const columns = canvas.width / fontSize;
 const drops = Array.from({length: columns}, () => Math.random() * canvas.height);
 
+
 function draw() {
   ctx.fillStyle = 'rgba(0,0,0,0.1)';
   ctx.fillRect(0, 0, canvas.width, canvas.height);

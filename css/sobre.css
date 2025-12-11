@@ -56,21 +56,24 @@ header {
   color: #ff00cc;
 }
 
-/* Menu estilo terminal */
+/* ===== MENU DESKTOP ===== */
 .terminal-menu {
-  display: flex;
+  display: flex;         /* Desktop = sempre visível */
   gap: 45px;
   flex-wrap: wrap;
   justify-content: flex-end;
 }
 
+
+/* Estilo dos links */
 .terminal-menu a {
   font-size: 1.8rem;
   font-weight: bold;
   color: #00ff99;
   text-decoration: none;
-  position: relative;
   transition: 0.3s;
+  position: relative;
+  animation: blinkMenu 2s infinite;
 }
 
 .terminal-menu a::before {
@@ -79,6 +82,7 @@ header {
   opacity: 0.9;
 }
 
+/* Hover */
 .terminal-menu a:hover {
   color: #000;
   background: #00ff99;
@@ -98,12 +102,10 @@ header {
   animation: blinkMenu 2s infinite;
 }
 
-/* ===== RESPONSIVO ===== */
+/* ===== AJUSTES TABLET ===== */
 @media (max-width: 1024px) {
   header {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     padding: 20px;
     gap: 20px;
   }
@@ -118,17 +120,43 @@ header {
   }
 }
 
-@media (max-width: 600px) {
-  .logo {
-    font-size: 2rem;
-  }
+/* ===== MENU MOBILE ===== */
+@media (max-width: 768px) {
 
+  /* Menu começa escondido */
   .terminal-menu {
+    display: none !important;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
+
+    position: fixed;
+    top: 80px;
+    right: 0;
+    width: 220px;
+
+    background: rgba(0, 0, 0, 0.92);
+    padding: 20px;
+    border-left: 2px solid #00ff99;
+    border-bottom: 2px solid #00ff99;
   }
 
+  /* Quando clicar no hamburguer */
+  .terminal-menu.show {
+    display: flex !important;
+  }
+
+  /* Botão hamburguer aparece */
+  .menu-btn {
+    display: block !important;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #00ff99;
+    cursor: pointer;
+  }
+
+  /* Links menores */
   .terminal-menu a {
     font-size: 1.4rem;
   }

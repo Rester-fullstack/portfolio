@@ -55,22 +55,25 @@ header {
   color: #ff00cc;
 }
 
-/* Menu estilo terminal */
+/* ===== MENU DESKTOP ===== */
 .terminal-menu {
-  display: flex;
+  display: flex;         /* Desktop = sempre visível */
   gap: 45px;
   flex-wrap: wrap;
   justify-content: flex-end;
 }
 
+/* Estilo dos links */
 .terminal-menu a {
   font-size: 1.8rem;
   font-weight: bold;
   color: #00ff99;
   text-decoration: none;
-  position: relative;
   transition: 0.3s;
+  position: relative;
+  animation: blinkMenu 2s infinite;
 }
+
 
 .terminal-menu a::before {
   content: ">_ ";
@@ -78,6 +81,7 @@ header {
   opacity: 0.9;
 }
 
+/* Hover */
 .terminal-menu a:hover {
   color: #000;
   background: #00ff99;
@@ -97,12 +101,10 @@ header {
   animation: blinkMenu 2s infinite;
 }
 
-/* ===== RESPONSIVO ===== */
+/* ===== AJUSTES TABLET ===== */
 @media (max-width: 1024px) {
   header {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     padding: 20px;
     gap: 20px;
   }
@@ -117,17 +119,43 @@ header {
   }
 }
 
-@media (max-width: 600px) {
-  .logo {
-    font-size: 2rem;
-  }
+/* ===== MENU MOBILE ===== */
+@media (max-width: 768px) {
 
+  /* Menu começa escondido */
   .terminal-menu {
+    display: none !important;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
+
+    position: fixed;
+    top: 80px;
+    right: 0;
+    width: 220px;
+
+    background: rgba(0, 0, 0, 0.92);
+    padding: 20px;
+    border-left: 2px solid #00ff99;
+    border-bottom: 2px solid #00ff99;
   }
 
+  /* Quando clicar no hamburguer */
+  .terminal-menu.show {
+    display: flex !important;
+  }
+
+  /* Botão hamburguer aparece */
+  .menu-btn {
+    display: block !important;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #00ff99;
+    cursor: pointer;
+  }
+
+  /* Links menores */
   .terminal-menu a {
     font-size: 1.4rem;
   }
@@ -136,11 +164,13 @@ header {
 
 /* ===== CONTATO SECTION ===== */
 .contato-section {
+  margin: calc(140px + 80px) auto 40px auto;
   position: relative;
-  z-index: 1; 
-  max-width: 90vw; 
-  margin: 15vh auto 5vh;
-  padding: 5vh 5vw;
+  z-index: 1;
+  width: 95%;                /* impede de sair da tela */
+  max-width: 900px;          /* mantém bonito em telas grandes */
+  padding: 25px 20px;        /* padding mais leve */
+  
   background: rgba(0, 0, 0, 0.7);
   border: 0.2rem solid #00ff99;
   border-radius: 1rem;
@@ -148,6 +178,7 @@ header {
   backdrop-filter: blur(5px);
   color: #00ff99;
 }
+
 
 /* Título principal */
 .contato-section h1 {
@@ -272,6 +303,14 @@ header {
 }
 
 /* ===== RESPONSIVO TOTAL ===== */
+
+@media (max-width: 600px) {
+  .contato-section {
+    margin-top: 200px !important;
+  }
+}
+
+
 @media (max-width: 480px) {
   .contato-section {
     padding: 4vh 4vw;
@@ -364,3 +403,5 @@ header {
     font-size: 0.8rem;
   }
 }
+
+

@@ -48,28 +48,106 @@ img {
 
 
 /* ===========================
-   HEADER + MENU (RESPONSIVO)
+   HEADER GERAL
 =========================== */
-
 header {
+  width: 100%;
+  padding: 15px 20px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;        /* ← PERMITE QUEBRAR */
-  padding: 15px 30px;
-  gap: 15px;              /* quando quebrar, mantém bonito */
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
 }
 
-/* Menu */
+.logo {
+  font-size: 1.6rem;
+  color: #00ff88;
+}
+
+
+/* ===========================
+   MENU DESKTOP
+=========================== */
 .terminal-menu {
   display: flex;
-  gap: 35px;
-  flex-wrap: wrap;        /* ← EVITA “engolir” ao dar zoom */
-  justify-content: center;
+  gap: 20px;
 }
 
-/* Links do menu */
 .terminal-menu a {
-  font-size: clamp(14px, 1.2vw, 18px);
-  white-space: nowrap;    /* texto não quebra no meio */
+  color: #00ff88;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: 0.3s;
+}
+
+.terminal-menu a:hover {
+  color: #00ffaa;
+}
+@media (min-width: 769px) {
+  .terminal-menu {
+    display: flex;
+  }
+
+  .menu-btn {
+    display: none;
+  }
+}
+
+
+
+/* ===========================
+   BOTÃO HAMBÚRGUER
+=========================== */
+.menu-btn {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #00ff88;
+  cursor: pointer;
+}
+
+
+/* ===========================
+   MENU MOBILE
+=========================== */
+@media (max-width: 768px) {
+
+  /* mostra o botão */
+  .menu-btn {
+    display: block;
+  }
+
+  /* esconde o menu inicialmente */
+  .terminal-menu {
+    position: fixed;
+    top: 70px;
+    right: 0;
+    width: 200px;
+    display: none;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.92);
+    padding: 20px;
+    border-left: 2px solid #00ff88;
+    border-bottom: 2px solid #00ff88;
+  }
+
+  .terminal-menu a {
+    padding: 10px 0;
+    border-bottom: 1px solid #003;
+  }
+
+  .terminal-menu a:last-child {
+    border-bottom: none;
+  }
+
+  /* ativado pelo JS */
+  .terminal-menu.show {
+    display: flex;
+  }
 }
